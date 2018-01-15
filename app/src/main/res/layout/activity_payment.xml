@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/odabba_color_main"
+    tools:context="com.example.kamranchaudhary.odabba.payment">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/Payment_PackageName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Monthly Package"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Payemnt_packageDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/Payment_PackageName"
+                    android:layout_below="@+id/Payment_PackageName"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="27 days" />
+
+                <TextView
+                    android:id="@+id/Payemnt_packagePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="12dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Rs. 3500/-"
+                    android:textColor="@color/odabba_color_main"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/Payment_packageDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/Payemnt_packageDays"
+                    android:layout_below="@+id/Payemnt_packageDays"
+                    android:text="Get oDabba for 27 days for just paying once for it and get your lunch hassle free for a month."
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Payment Method"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp">
+
+                    <Button
+                        android:id="@+id/Payment_btn1"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/my_btn_border"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Cash on\nDelivery"
+                        android:textAlignment="center"
+                        android:textAllCaps="false"
+                        android:textColor="@color/odabba_color_main"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/Payment_btn2"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/my_btn_border"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Debit\nCard"
+                        android:textAllCaps="false"
+                        android:textColor="@color/odabba_color_main"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/Payment_btn3"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/my_btn_border"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Credit\nCard"
+                        android:textAllCaps="false"
+                        android:textColor="@color/odabba_color_main"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/Payment_confirmBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/my_button"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Confirm"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</RelativeLayout>
