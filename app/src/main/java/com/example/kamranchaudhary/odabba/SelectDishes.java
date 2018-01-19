@@ -27,33 +27,43 @@ import java.util.Calendar;
 
 public class SelectDishes extends AppCompatActivity {
 
-    CardView cardView;
-    TextView txt,btnSkip;
+    CardView cardViewDish1,cardViewDish2;
+    TextView txt1,txt2,btnSkip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_dishes);
 
-        cardView = (CardView) findViewById(R.id.dish1cardView);
-        txt = (TextView) findViewById(R.id.txtViewDishDescp);
-        btnSkip = (TextView) findViewById(R.id.selectDishSkipTxt);
+        cardViewDish1 = (CardView) findViewById(R.id.dish1cardView);
+        cardViewDish2 = (CardView) findViewById(R.id.dish2cardView);
+
+        txt1 = (TextView) findViewById(R.id.txtViewDishDescp);
+        txt2 = (TextView) findViewById(R.id.txtViewDishDescp2);
 
         final Animation an = AnimationUtils.loadAnimation(getBaseContext(),R.anim.myanim);
 
-        cardView.setOnClickListener(new View.OnClickListener() {
+        cardViewDish1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cardView.startAnimation(an);
-                txt.setTextColor(getResources().getColor(R.color.odabba_color_main));
-                cardView.setCardElevation(20);
+                cardViewDish2.clearAnimation();
+                cardViewDish1.startAnimation(an);
+                txt1.setTextColor(getResources().getColor(R.color.odabba_color_main));
+                txt2.setTextColor(getResources().getColor(R.color.cardview_dark_background));
+                cardViewDish1.setCardElevation(20);
+                cardViewDish2.setCardElevation(0);
             }
         });
 
-        btnSkip.setOnClickListener(new View.OnClickListener() {
+        cardViewDish2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(SelectDishes.this,profile.class);
-                startActivity(i);
+                //an.cancel();
+                cardViewDish1.clearAnimation();
+                cardViewDish2.startAnimation(an);
+                txt2.setTextColor(getResources().getColor(R.color.odabba_color_main));
+                txt1.setTextColor(getResources().getColor(R.color.cardview_dark_background));
+                cardViewDish2.setCardElevation(20);
+                cardViewDish1.setCardElevation(0);
             }
         });
     }
