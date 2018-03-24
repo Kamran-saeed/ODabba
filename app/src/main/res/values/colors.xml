@@ -5,5 +5,6 @@
     <color name="colorAccent">#E89558</color>
     <color name="odabba_color_main">#f39c5c</color>
     <color name="odabba_status_bar">#E89558</color>
-    <color name="odabba_edgeEffect">#FFB461</color>
+    <color name="odabba_edgeEffect">#ffb461</color>
+    <color name="white2">#fffffa</color>
 </resources>

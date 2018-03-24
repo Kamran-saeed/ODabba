@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
+            android:checked="true"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person_outline_black_24dp"
             android:title="Profile" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_promo"
             android:icon="@drawable/ic_card_giftcard_black_24dp"
             android:title="Promo Code" />
         <item
@@ -17,12 +23,12 @@
             android:icon="@drawable/ic_payment_black_24dp"
             android:title="Wallet" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_packages"
             android:icon="@drawable/ic_business_center_black_24dp"
             android:title="Packages" />
 
         <item
-            android:id="@+id/nav_share"
+            android:id="@+id/nav_subs"
             android:icon="@drawable/ic_view_list_black_24dp"
             android:title="My Subscriptions" />
         <item

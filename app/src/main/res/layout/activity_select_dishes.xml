@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cardview_light_background"
     android:orientation="vertical"
     tools:context="com.example.kamranchaudhary.odabba.SelectDishes">
 
@@ -16,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/cardview_light_background"
+            android:background="@color/white2"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <LinearLayout
@@ -45,108 +46,151 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.github.badoualy.datepicker.DatePickerTimeline
-        android:id="@+id/dayPicker"
-        style="@style/AppTheme"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewSelcDish"
-        android:layout_marginTop="12dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/dayPicker"
-        android:layout_marginTop="30dp">
+        android:orientation="vertical">
 
 
         <android.support.v7.widget.CardView
-            android:id="@+id/dish1cardView"
-            android:layout_width="170dp"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
-            android:layout_weight="50"
-            app:cardCornerRadius="7dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
+            <android.support.design.widget.TabLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:tabMode="scrollable">
 
-                <ImageView
-                    android:id="@+id/imageViewD1"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
-
-                <TextView
-                    android:id="@+id/txtViewDishDescp"
+                <android.support.design.widget.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Chicken Pizza"
-                    android:textSize="20sp" />
+                    android:text="Mon" />
 
-                <TextView
-                    android:id="@+id/txtViewDishName"
+                <android.support.design.widget.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="A perfect pizza with a lot of cheese and beans" />
+                    android:text="Tue" />
 
-            </LinearLayout>
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wed" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Thr" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fri" />
+
+                <android.support.design.widget.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sat" />
+
+            </android.support.design.widget.TabLayout>
 
         </android.support.v7.widget.CardView>
 
-        <android.support.v7.widget.CardView
-            android:id="@+id/dish2cardView"
-            android:layout_width="170dp"
-            android:layout_height="200dp"
-            android:layout_margin="10dp"
-            android:layout_weight="50"
-            app:cardCornerRadius="7dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+            <android.support.v7.widget.CardView
+                android:id="@+id/dish1cardView"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:layout_weight="50"
+                app:cardCornerRadius="7dp">
 
-                <ImageView
-                    android:id="@+id/imageViewD2"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@mipmap/ic_launcher_round" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtViewDishDescp2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="Chicken Steak"
-                    android:textSize="20sp" />
+                    <ImageView
+                        android:id="@+id/imageViewD1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
 
-                <TextView
-                    android:id="@+id/txtViewDishName2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="3dp"
-                    android:layout_marginStart="3dp"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="A beefsteak coated with flour and pan-fried" />
+                    <TextView
+                        android:id="@+id/txtViewDishDescp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Chicken Pizza"
+                        android:textSize="20sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtViewDishName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="A perfect pizza with a lot of cheese and beans" />
 
-        </android.support.v7.widget.CardView>
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/dish2cardView"
+                android:layout_width="170dp"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:layout_weight="50"
+                app:cardCornerRadius="7dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imageViewD2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        app:srcCompat="@mipmap/ic_launcher_round" />
+
+                    <TextView
+                        android:id="@+id/txtViewDishDescp2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="Chicken Steak"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/txtViewDishName2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:text="A beefsteak coated with flour and pan-fried" />
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
 
     </LinearLayout>
 
