@@ -1,31 +1,54 @@
 package com.example.kamranchaudhary.odabba;
 
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.example.kamranchaudhary.odabba.Models.Package;
 
 public class payment extends AppCompatActivity {
 
     Button confirmBtn,paymentBtn1,paymentBtn2,paymentBtn3;
-    final int height = 900;
     int minHeight;
     CardView payemtnCardView;
     LinearLayout ll;
+    TextView packageName,packageType,packageDays,packagePrice,packageDesc;
+    Package p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+
+        packageName = (TextView) findViewById(R.id.Payment_PackageName);
+        packageType = (TextView) findViewById(R.id.Payment_PackageType);
+        packageDays = (TextView) findViewById(R.id.Payemnt_packageDays);
+        packagePrice = (TextView) findViewById(R.id.Payemnt_packagePrice);
+        packageDesc = (TextView) findViewById(R.id.Payment_packageDesc);
+
+        if(getIntent().hasExtra("Package_Object")){
+
+            p = (Package) getIntent().getSerializableExtra("Package_Object");
+            packageName.setText(p.getPackage_name());
+            packageType.setText(p.getPackage_type());
+            packageDays.setText(String.valueOf(p.getPackage_duration()) + " Days");
+            packagePrice.setText("Rs. " + String.valueOf(p.getPackage_price()) + "/-");
+            packageDesc.setText(p.getPackage_description());
+        }
 
         payemtnCardView = (CardView) findViewById(R.id.Payment_cardview);
         paymentBtn1 = (Button) findViewById(R.id.Payment_btn1);
@@ -33,7 +56,10 @@ public class payment extends AppCompatActivity {
         paymentBtn3 = (Button) findViewById(R.id.Payment_btn3);
         ll = (LinearLayout) findViewById(R.id.Payment_includeLayout);
 
-
+//        WindowManager windowmanager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+//        DisplayMetrics dimension = new DisplayMetrics();
+//        windowmanager.getDefaultDisplay().getMetrics(dimension);
+//        height = dimension.heightPixels;
         paymentBtn1.setBackground(getResources().getDrawable(R.drawable.my_btn_onclick));
         paymentBtn1.setTextColor(Color.WHITE);
         paymentBtn1.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +81,6 @@ public class payment extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = payemtnCardView.getLayoutParams();
                 layoutParams.height = minHeight;
                 payemtnCardView.setLayoutParams(layoutParams);
-
                 return true;
             }
         });
@@ -66,7 +91,7 @@ public class payment extends AppCompatActivity {
                 changeColorDefault(paymentBtn1,paymentBtn3);
                 paymentBtn2.setBackground(getResources().getDrawable(R.drawable.my_btn_onclick));
                 paymentBtn2.setTextColor(Color.WHITE);
-                toggleCardViewnHeight(height);
+                toggleCardViewnHeight();
             }
         });
 
@@ -76,7 +101,7 @@ public class payment extends AppCompatActivity {
                 changeColorDefault(paymentBtn1,paymentBtn2);
                 paymentBtn3.setBackground(getResources().getDrawable(R.drawable.my_btn_onclick));
                 paymentBtn3.setTextColor(Color.WHITE);
-                toggleCardViewnHeight(height);
+                toggleCardViewnHeight();
             }
         });
 
@@ -89,15 +114,14 @@ public class payment extends AppCompatActivity {
             }
         });
     }
-    private void toggleCardViewnHeight(int height) {
+    private void toggleCardViewnHeight() {
 
         if (payemtnCardView.getHeight() == minHeight) {
-            expandView(height);
+            expandView();
             createEditTexts();
-        } else {
-            //collapseView();
         }
     }
+
     public void collapseView() {
 
         ValueAnimator anim = ValueAnimator.ofInt(payemtnCardView.getMeasuredHeightAndState(),
@@ -109,30 +133,35 @@ public class payment extends AppCompatActivity {
                 ViewGroup.LayoutParams layoutParams = payemtnCardView.getLayoutParams();
                 layoutParams.height = val;
                 payemtnCardView.setLayoutParams(layoutParams);
-
             }
         });
         anim.start();
     }
-    public void expandView(int height) {
 
-        ValueAnimator anim = ValueAnimator.ofInt(payemtnCardView.getMeasuredHeightAndState(),
-                height);
-        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int val = (Integer) valueAnimator.getAnimatedValue();
-                ViewGroup.LayoutParams layoutParams = payemtnCardView.getLayoutParams();
-                layoutParams.height = val;
-                payemtnCardView.setLayoutParams(layoutParams);
-            }
-        });
-        anim.start();
+    public void expandView() {
+//        ValueAnimator anim = ValueAnimator.ofInt(payemtnCardView.getMeasuredHeightAndState(),
+//                height);
+//        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+//            @Override
+//            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+//                int val = (Integer) valueAnimator.getAnimatedValue();
+//                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) payemtnCardView.getLayoutParams();
+//                layoutParams.height = val;
+//                layoutParams.setMargins(20,20,20,100);
+//                payemtnCardView.setLayoutParams(layoutParams);
+//            }
+//        });
+//        anim.start();
+        LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        lparams.setMargins(20,20,20,100);
+        payemtnCardView.setLayoutParams(lparams);
     }
+
     public void createEditTexts(){
 
-        ViewGroup.LayoutParams lparams = new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         Typeface tf = Typeface.create("Roboto bold",Typeface.BOLD);
 
         EditText ed1 = new EditText(payment.this);
@@ -160,6 +189,7 @@ public class payment extends AppCompatActivity {
         ll.addView(ed2);
         ll.addView(ed3);
     }
+
     public void changeColorDefault(Button btn1, Button btn2){
         btn1.setBackground(getResources().getDrawable(R.drawable.my_btn_border));
         btn1.setTextColor(getResources().getColor(R.color.odabba_color_main));
