@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.kamranchaudhary.odabba.APIs.PackageApi;
+import com.example.kamranchaudhary.odabba.APIs.ApiClient;
 import com.example.kamranchaudhary.odabba.Adapters.RecylerAdapter;
 import com.example.kamranchaudhary.odabba.Interfaces.PackageApiInterface;
 import com.example.kamranchaudhary.odabba.Models.Package;
@@ -38,7 +38,7 @@ public class home extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         if(!apiFlag) {
-            packageApiInterface = PackageApi.getApiClent().create(PackageApiInterface.class);
+            packageApiInterface = ApiClient.getApiClent().create(PackageApiInterface.class);
             Call<List<Package>> call = packageApiInterface.getPackages();
             call.enqueue(new Callback<List<Package>>() {
                 @Override
