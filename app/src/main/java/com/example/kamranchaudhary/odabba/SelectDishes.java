@@ -124,6 +124,14 @@ public class SelectDishes extends AppCompatActivity {
                         dish2Name.setText(menuList.get(5).getDish_name());
                         dish2Description.setText(menuList.get(5).getDish_desc());
                         break;
+                    case 3:
+                        convertDate(6);
+                        currentDate.setText(date);
+                        dish1Name.setText(menuList.get(6).getDish_name());
+                        dish1Description.setText(menuList.get(6).getDish_desc());
+                        dish2Name.setText(menuList.get(7).getDish_name());
+                        dish2Description.setText(menuList.get(7).getDish_desc());
+                        break;
                 }
             }
             @Override
